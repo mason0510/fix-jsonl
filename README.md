@@ -1,5 +1,9 @@
 # fix-jsonl
 
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/mason0510/fix-jsonl/releases)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-macOS-lightgrey.svg)]()
+
 **Claude Code JSONL Repair Tool** - Clean up and fix Claude Code session files
 
 [English](#english) | [中文](#中文) | [日本語](#日本語)
@@ -7,6 +11,15 @@
 ---
 
 ## English
+
+### Problem
+
+This tool fixes the issue reported in [anthropics/claude-code#10199](https://github.com/anthropics/claude-code/issues/10199):
+
+> **Session JSONL files become corrupted or bloated**
+> - Truncated JSON lines after crashes or force stops (`Ctrl+C`)
+> - Excessive `thinking` content consuming disk space (3-10x actual output)
+> - Unable to resume sessions due to parse errors
 
 ### What is this?
 
@@ -17,6 +30,15 @@ A command-line tool to repair and optimize Claude Code session JSONL files. Clau
 - **Invalid entries** - Empty lines, control characters
 
 This tool fixes all these issues automatically.
+
+### Requirements
+
+| Item | Version |
+|------|---------|
+| Platform | macOS |
+| Tested on | macOS 15.0 (24A335) |
+| Python | 3.8+ |
+| Claude Code | 1.0+ |
 
 ### Features
 
@@ -31,7 +53,7 @@ This tool fixes all these issues automatically.
 
 ```bash
 # Clone
-git clone https://github.com/anthropics/fix-jsonl.git
+git clone https://github.com/mason0510/fix-jsonl.git
 cd fix-jsonl
 
 # Install globally
@@ -95,6 +117,15 @@ Fixed: 2 files | Saved: 1.16 MB
 
 ## 中文
 
+### 解决的问题
+
+本工具修复 [anthropics/claude-code#10199](https://github.com/anthropics/claude-code/issues/10199) 中报告的问题：
+
+> **会话 JSONL 文件损坏或膨胀**
+> - 崩溃或强制停止（`Ctrl+C`）后 JSON 行被截断
+> - 过多的 `thinking` 内容占用磁盘空间（是实际输出的 3-10 倍）
+> - 由于解析错误无法恢复会话
+
 ### 这是什么？
 
 一个用于修复和优化 Claude Code 会话 JSONL 文件的命令行工具。Claude Code 将对话历史存储在 `~/.claude/projects/` 下的 `.jsonl` 文件中。这些文件通常包含：
@@ -104,6 +135,15 @@ Fixed: 2 files | Saved: 1.16 MB
 - **无效条目** - 空行、控制字符
 
 本工具可自动修复所有这些问题。
+
+### 环境要求
+
+| 项目 | 版本 |
+|------|------|
+| 平台 | macOS |
+| 测试环境 | macOS 15.0 (24A335) |
+| Python | 3.8+ |
+| Claude Code | 1.0+ |
 
 ### 功能
 
@@ -118,7 +158,7 @@ Fixed: 2 files | Saved: 1.16 MB
 
 ```bash
 # 克隆
-git clone https://github.com/anthropics/fix-jsonl.git
+git clone https://github.com/mason0510/fix-jsonl.git
 cd fix-jsonl
 
 # 全局安装
@@ -171,6 +211,15 @@ fix-jsonl
 
 ## 日本語
 
+### 解決する問題
+
+このツールは [anthropics/claude-code#10199](https://github.com/anthropics/claude-code/issues/10199) で報告された問題を修正します：
+
+> **セッション JSONL ファイルの破損または肥大化**
+> - クラッシュや強制終了（`Ctrl+C`）後の JSON 行の切り詰め
+> - 過剰な `thinking` コンテンツによるディスク容量の消費（実際の出力の 3-10 倍）
+> - パースエラーによりセッションを再開できない
+
 ### これは何？
 
 Claude Code セッション JSONL ファイルを修復・最適化するコマンドラインツールです。Claude Code は会話履歴を `~/.claude/projects/` 配下の `.jsonl` ファイルに保存します。これらのファイルには通常以下が含まれます：
@@ -180,6 +229,15 @@ Claude Code セッション JSONL ファイルを修復・最適化するコマ�
 - **無効なエントリ** - 空行、制御文字
 
 このツールはこれらすべての問題を自動的に修復します。
+
+### 動作環境
+
+| 項目 | バージョン |
+|------|------------|
+| プラットフォーム | macOS |
+| テスト環境 | macOS 15.0 (24A335) |
+| Python | 3.8+ |
+| Claude Code | 1.0+ |
 
 ### 機能
 
@@ -194,7 +252,7 @@ Claude Code セッション JSONL ファイルを修復・最適化するコマ�
 
 ```bash
 # クローン
-git clone https://github.com/anthropics/fix-jsonl.git
+git clone https://github.com/mason0510/fix-jsonl.git
 cd fix-jsonl
 
 # グローバルインストール
@@ -245,6 +303,15 @@ fix-jsonl
 
 ---
 
+## Changelog
+
+### v2.0.0 (2024-12-30)
+- Initial public release
+- Remove thinking/redacted_thinking content
+- Auto-fix corrupted JSON format
+- Fuzzy search project directories
+- Batch mode with `--all`
+
 ## License
 
 MIT License
@@ -252,3 +319,7 @@ MIT License
 ## Contributing
 
 Pull requests are welcome! Please open an issue first to discuss what you would like to change.
+
+## Related
+
+- [Claude Code Issue #10199](https://github.com/anthropics/claude-code/issues/10199) - The issue this tool addresses
